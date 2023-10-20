@@ -67,9 +67,17 @@ namespace WinFormsAnket
                 {
                     if (workers[i].Mail == existedMail.Text)
                     {
+                        int index = i;
                         string readFrom = File.ReadAllText("../../../Workers.json");
-                        workers = JsonSerializer.Deserialize<List<Worker>>(readFrom);
+                        workers = JsonSerializer.Deserialize<List<Worker>>(readFrom);                        
                         IsFound = true;
+                        surnameTextBox.Text = workers[index].Surname;
+                        nameTextBox.Text = workers[index].Name;
+                        fatherTextBox.Text = workers[index].FatherName;
+                        countryTextBox.Text = workers[index].Country;
+                        cityTextBox.Text= workers[index].City;
+                        phoneTextBox.Text = workers[index].Phone;
+                        mailtextBox.Text = workers[index].Mail;
                     }
                 }
                 if (!IsFound)
